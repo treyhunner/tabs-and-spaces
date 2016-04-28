@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Mixing Tabs & Spaces</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/truthful.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section data-background="#ffffff" data-background-transition="zoom" data-transition="zoom" data-transition-speed="fast">
+          <h1>Mixing Tabs & Spaces</h1>
+          <p>
+          <small><a href="https://treyhunner.com" rel="author">Trey Hunner</a> / <a href="https://twitter.com/treyhunner">@treyhunner</a></small>
+          </p>
+          <aside class="notes" data-markdown>
+            TODO
+          </aside>
+        </section>
+
+        <section>
+          <h2>Indentation doesn't always matter</h2>
+          <div class="columns">
+            <div>
+              <pre class="python"><code data-trim>
+def flatten(matrix):
+  return [
+            n for row
+ in matrix for n
+       in row
+     ]
+              </code></pre>
+            </div>
+            <div>
+              <pre class="python">
+<code>def len_or_none(obj):
+   try:
+         return len(obj)
+   except TyperError:
+     return None
+
+</code></pre>
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            Indentation doesn't always matter as much as you might think it would.
+
+            If you're continuing a line by leaving a parenthesis, bracket, or brace open, the indentation doesn't matter one bit.
+
+            If you're making a **new** indentation level to start a new block of indented code, that first line of code just needs to have greater indentation.  It doesn't matter whether it aligns with some previous indented-block.  It just needs to be greater.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Same block? Indentation matters.</h2>
+          <div class="columns">
+            <div>
+              <pre class="python"><code data-trim>
+def guess_number():
+  while True:
+     guess = input('Guess: ')
+    if guess == '4':
+        break
+              </code></pre>
+            </div>
+            <div>
+              <pre class="python">
+<code>def len_or_none(obj):
+  try:
+      return len(obj)
+    except TyperError:
+      return None
+</code></pre>
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            Often indentation does matter.
+
+            If you're in the same code block, your indentation level must remain the same.  You can't remove a space, you can't add a space.
+
+            That `if` statement on the left is not lined up with the `guess` variable but it's also not at the same level as the `while` so it's not inside the `while` block but it's not outside either.  That's broken code.
+
+            That `except` isn't in the same block as the `try`, but it's supposed to be.  That's broken also.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Indentation of line must be either</h2>
+          <ol>
+            <li><strong>Same block</strong>: last line's indentation level</li>
+            <li><strong>Outer block</strong>: a previous less-indented level</li>
+            <li><strong>New block</strong>: more indented than current indentation</li>
+          </ol>
+          <aside class="notes" data-markdown>
+            If a line of code is in the same block as the previous line it must be indented the same amount.
+
+            If a line of code is supposed to be end the current block by outside of it, it must line up with a previous indentation level.
+
+            If a line of code is forming a new code block (for example the first line of an `if` or a `while`) it must be more indented than the last line of code.
+          </aside>
+        </section>
+
+        <section>
+          <h2>What about tabs and spaces?</h2>
+          <ul>
+            <li>Typewriters: tab key moves the cursor to the next <strong>tab stop</strong></li>
+            <li>In Python, there's a tab stop at every <strong>8 characters</strong></li>
+            <li>1 tab character = number of spaces until the next tab stop</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            If a line of code is in the same block as the previous line it must be indented the same amount.
+
+            If a line of code is supposed to be end the current block by outside of it, it must line up with a previous indentation level.
+
+            If a line of code is forming a new code block (for example the first line of an `if` or a `while`) it must be more indented than the last line of code.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Same block? Indentation matters.</h2>
+          <div class="columns">
+            <div>
+              <pre class="python"><code data-trim data-colorize>
+def guess_number():
+  while True:
+     guess = input('Guess: ')
+    if guess == '4':
+        break
+              </code></pre>
+            </div>
+            <div>
+              <pre class="python">
+<code>def len_or_none(obj):
+  try:
+      return len(obj)
+    except TyperError:
+      return None
+</code></pre>
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            TODO
+          </aside>
+        </section>
+
+        <section style="text-align: left;" data-background="#663399" data-background-transition="slide" data-transition="slide">
+          <h2>Don't mix tabs and spaces</h2>
+          <p>
+          <small><a href="https://treyhunner.com">Trey Hunner</a> / <a href="https://twitter.com/treyhunner">@treyhunner</a></small>
+          </p>
+          <p>
+          <small>
+            Technical trainer
+            <br>
+            <a href="http://truthful.technology">http://truthful.technology</a>
+          </small>
+          </p>
+          <p>
+          <img src="logo.svg" class="no-style logo">
+          </p>
+          <aside class="notes" data-markdown>
+            Any questions?
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
