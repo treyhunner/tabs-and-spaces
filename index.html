@@ -31,7 +31,9 @@
           <small><a href="https://treyhunner.com" rel="author">Trey Hunner</a> / <a href="https://twitter.com/treyhunner">@treyhunner</a></small>
           </p>
           <aside class="notes" data-markdown>
-            My name is Trey.  I'm going to teach you how to mix and tabs when indenting your Python code.
+            My name is Trey.  I do corporate training and I teach online.  My primary programming specialty is Python.
+
+            I'm going to teach you how to mix and tabs when indenting your Python code.
           </aside>
         </section>
 
@@ -48,11 +50,13 @@
 
             Unlike most other programming languages, Python actually **cares about our indentation**.
 
-            Python uses indentation to **figure out what our code blocks look like**.
+            It uses indentation to **figure out what our code blocks look like**.
 
-            Python allows us to **choose spaces or tabs** for indentation.
+            In Python, we can use **either spaces or tabs** for indentation.
 
-            But what if we didn't choose between tabs and spaces?  What if we used a **mix of both**?
+            But what if we didn't want to choose between tabs and spaces?  What if we couldn't decide?
+
+            What if we used a **mix of both tabs and spaces**?
           </aside>
         </section>
 
@@ -60,7 +64,11 @@
           <h2>Some programmers just want to mix tabs and spaces</h2>
           <img src="some-programmers.jpg" class="no-style">
           <aside class="notes" data-markdown>
-            I'm not going to tell you why you should mix tabs and spaces, I'm only going to show you how.
+            You're probably wondering what kind of indecisive fool would *mix* tabs and spaces.
+
+            That's not what I'm going to talk about though.
+
+            I'm not going to tell you why you should mix tabs and spaces, I'm only going to **show you HOW**.
           </aside>
         </section>
 
@@ -89,9 +97,11 @@ def flatten(matrix):
             </div>
           </div>
           <aside class="notes" data-markdown>
-            Indentation doesn't always matter as much as you might think it might.
+            First we need to talk about indentation.
 
-            If you're continuing a line by leaving a parenthesis, bracket, or brace open, the indentation doesn't matter one bit.  In Python, we call this a **line continuation**.
+            Indentation doesn't always matter as much as you might think.
+
+            If you're continuing a line by leaving open a parenthesis, bracket, or brace, the indentation doesn't matter at all
 
             If you're making a **new** indentation level to start a new block of indented code, that first line of code only needs to have greater indentation.
 
@@ -194,10 +204,6 @@ def guess_number():
             These two code samples are equivalent.  In the code block on the right you can see that those 8 spaces are seen as equivalent to that 1 tab character.
 
             We can use them interchangeably.
-
-            Now that does **NOT** mean that 1 tab character is always equal to 1 spaces.
-
-            1 tab character represents the number of spaces until the next tab stop.
           </aside>
         </section>
 
@@ -287,7 +293,7 @@ $ python3 examples/demo.py
 TabError: inconsistent use of tabs and spaces in indentation
           </code></pre>
           <aside class="notes" data-markdown>
-            Unfortunately if you're trying to mix tabs and spaces, your won't work at all on Python 3.
+            Also you can't use python 3.
 
             Python 3 completely disallows indentation styles that use a mix of tabs and spaces.
           </aside>
@@ -319,7 +325,7 @@ TabError: inconsistent use of tabs and spaces in indentation
           <img src="logo.svg" class="no-style logo">
           </p>
           <aside class="notes" data-markdown>
-            Any questions?
+            Thank you.
           </aside>
         </section>
 
