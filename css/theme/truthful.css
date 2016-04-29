@@ -322,3 +322,16 @@ section.has-dark-background a:hover {
   width: 50%;
   padding: 1em;
 }
+
+/*********************************************
+ * Blink tag polyfill
+ *********************************************/
+@keyframes blink {
+ 80% {
+    color: darkred;
+ }
+}
+
+blink {
+  animation: blink 1s ease-in-out infinite;
+}
