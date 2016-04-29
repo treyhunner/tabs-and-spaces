@@ -31,7 +31,36 @@
           <small><a href="https://treyhunner.com" rel="author">Trey Hunner</a> / <a href="https://twitter.com/treyhunner">@treyhunner</a></small>
           </p>
           <aside class="notes" data-markdown>
-            TODO
+            My name is Trey.  I'm going to teach you how to mix and tabs when indenting your Python code.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Indentation</h2>
+          <ul>
+            <li>Programmers use indentation to make code readable</li>
+            <li>Python uses indentation to define code blocks</li>
+            <li>Python allows either tabs or spaces for indentation</li>
+            <li class="fragment"><strong>Why not both?</strong> 😈</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            As programmers, we use indentation to **make our code readable**.
+
+            Unlike most other programming languages, Python actually **cares about our indentation**.
+
+            Python uses indentation to **figure out what our code blocks look like**.
+
+            Python allows us to **choose spaces or tabs** for indentation.
+
+            But what if we didn't choose between tabs and spaces?  What if we used a **mix of both**?
+          </aside>
+        </section>
+
+        <section data-background="#000000" data-background-transition="fade">
+          <h2>Some programmers just want to mix tabs and spaces</h2>
+          <img src="some-programmers.jpg" class="no-style">
+          <aside class="notes" data-markdown>
+            I'm not going to tell you why you should mix tabs and spaces, I'm only going to show you how.
           </aside>
         </section>
 
@@ -60,11 +89,13 @@ def flatten(matrix):
             </div>
           </div>
           <aside class="notes" data-markdown>
-            Indentation doesn't always matter as much as you might think it would.
+            Indentation doesn't always matter as much as you might think it might.
 
-            If you're continuing a line by leaving a parenthesis, bracket, or brace open, the indentation doesn't matter one bit.
+            If you're continuing a line by leaving a parenthesis, bracket, or brace open, the indentation doesn't matter one bit.  In Python, we call this a **line continuation**.
 
-            If you're making a **new** indentation level to start a new block of indented code, that first line of code just needs to have greater indentation.  It doesn't matter whether it aligns with some previous indented-block.  It just needs to be greater.
+            If you're making a **new** indentation level to start a new block of indented code, that first line of code only needs to have greater indentation.
+
+            It doesn't matter whether it aligns with some previously indented-block.  It just needs to be greater.
           </aside>
         </section>
 
@@ -91,29 +122,29 @@ def guess_number():
             </div>
           </div>
           <aside class="notes" data-markdown>
-            Often indentation does matter.
+            However, indentation often does matter.
 
-            If you're in the same code block, your indentation level must remain the same.  You can't remove a space, you can't add a space.
+            If you're in the **same code block**, your **indentation level must remain the same**.  You can't remove a space, you can't add a space.
 
-            That `if` statement on the left is not lined up with the `guess` variable but it's also not at the same level as the `while` so it's not inside the `while` block but it's not outside either.  That's broken code.
+            That `if` statement on the left is not lined up with the `guess` variable but it's also not at the same level as the `while` so it's not inside the `while` block but it's also not outside it.  That is broken code.
 
-            That `except` isn't in the same block as the `try`, but it's supposed to be.  That's broken also.
+            That `except` line on the right isn't in the same block as the `try`, but it's supposed to be.  That's also broken code.
           </aside>
         </section>
 
         <section>
-          <h2>Indentation of line must be either</h2>
+          <h2>Indentation rules for each line of code</h2>
           <ol>
             <li><strong>Same block</strong>: last line's indentation level</li>
             <li><strong>Outer block</strong>: a previous less-indented level</li>
             <li><strong>New block</strong>: more indented than current indentation</li>
           </ol>
           <aside class="notes" data-markdown>
-            If a line of code is in the same block as the previous line it must be indented the same amount.
+            If a line of code is in the **same block** as the previous line it must be **indented the same amount**.
 
-            If a line of code is supposed to be end the current block by outside of it, it must line up with a previous indentation level.
+            If a line of code is supposed to **end the current block** by being outside of it, it must **line up with a previous indentation level**.
 
-            If a line of code is forming a new code block (for example the first line of an `if` or a `while`) it must be more indented than the last line of code.
+            If a line of code is forming a **new code block** (for example the first line of an `if` or a `while`) it must be **more indented** than the last line of code.
           </aside>
         </section>
 
@@ -125,38 +156,150 @@ def guess_number():
             <li>1 tab character = number of spaces until the next tab stop</li>
           </ul>
           <aside class="notes" data-markdown>
-            If a line of code is in the same block as the previous line it must be indented the same amount.
+            Those indentation rules are great, but what about mixing tabs and spaces?
 
-            If a line of code is supposed to be end the current block by outside of it, it must line up with a previous indentation level.
+            When using tabs it's important to keep in mind that tab characters represent the number of characters until the next 8 character tab stop.
 
-            If a line of code is forming a new code block (for example the first line of an `if` or a `while`) it must be more indented than the last line of code.
+            Sometimes we can approximate this idea by saying that tabs are equal to 8 spaces.  But that's not quite true.
+
+            Let's take a look at some code to see why that is.
           </aside>
         </section>
 
         <section>
-          <h2>Same block? Indentation matters.</h2>
+          <h2>Tab stops are 8 characters</h2>
           <div class="columns">
             <div>
               <pre class="python"><code data-trim data-colorize>
 def guess_number():
-  while True:
-     guess = input('Guess: ')
-    if guess == '4':
-        break
+    while True:
+	guess = input('Guess: ')
+	if guess == '4':
+	    break
               </code></pre>
             </div>
             <div>
-              <pre class="python">
-<code>def len_or_none(obj):
-  try:
-      return len(obj)
-    except TyperError:
-      return None
-</code></pre>
+              <pre class="python"><code data-trim data-colorize>
+def guess_number():
+    while True:
+        guess = input('Guess: ')
+	if guess == '4':
+	    break
+              </code></pre>
             </div>
           </div>
           <aside class="notes" data-markdown>
-            TODO
+            The indentation in these code blocks is highlighted.  Every space character is blue and every tab character is red.
+
+            These two code samples are equivalent.  In the code block on the right you can see that those 8 spaces are seen as equivalent to that 1 tab character.
+
+            We can use them interchangeably.
+
+            Now that does **NOT** mean that 1 tab character is always equal to 1 spaces.
+
+            1 tab character represents the number of spaces until the next tab stop.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Tabs: not always 8 spaces</h2>
+          <div class="columns">
+            <div>
+              <pre class="python"><code data-trim data-colorize>
+def guess_number():
+    while True:
+	guess = input('Guess: ')
+	if guess == '4':
+	    break
+              </code></pre>
+            </div>
+            <div>
+              <pre class="python"><code data-trim data-colorize>
+def guess_number():
+    while True:
+	guess = input('Guess: ')
+    	if guess == '4':
+	    break
+              </code></pre>
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            These two code blocks are also equivalent.
+
+            Note that on the right, the `if` statement line is indented with 4 spaces and 1 tab, but Python sees this as equivalent to 8 spaces.
+
+            There is a tab stop every 8 characters in Python.
+
+            Tab *characters* only **fill the space needed** to reach the **next tab stop**.
+          </aside>
+        </section>
+
+        <section>
+          <pre class="python"><code data-trim data-colorize>
+def progressively_more_spaces():
+ 	print("let's add one more space to the beginning...")
+  	print("of each line.")
+   	print("The effective indentation is the same")
+    	print("even though we're adding more spaces.")
+     	print("Each tab represents only the spaces needed")
+      	print("to get to the next 8 character tab stop.")
+       	if "your editor doesn't use 8 character tabs":
+        	print("you may have trouble reading this code.")
+         	print("Python uses 8 character tab stops")
+          	print("so we also use 8 character tab stops.")
+           	print("This way we can mix spaces and tabs")
+            	print("without any worries about broken code.")
+             	print("Mixing tabs and spaces can be fun")
+              	print("but beware!")
+               	while "you could write code like this":
+                	print("It's probably best not to.")
+              </code></pre>
+          <aside class="notes" data-markdown>
+            A line of code with **1 tab** is equivalent to a line of code with **1 space and 1 tab**.
+
+            This is also equivalent to **2 spaces and 1 tab** or **7 spaces and 1 tab**.
+
+            **8 spaces and one tab** is the same as **2 tabs** or **16 spaces**.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Configure your editor</h2>
+          <pre><code data-trim data-colorize>
+# http://editorconfig.org
+[*.py]
+indent_size = 4
+tab_width = 8
+indent_style = tab
+          </code></pre>
+          <aside class="notes" data-markdown>
+            This is very important: if you are mixing tabs and spaces, you must configure your text editor to use tab stops that are 8 characters wide.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Don't use Python 3</h2>
+          <pre class="bash"><code data-trim>
+$ python3 examples/demo.py
+  File "examples/demo.py", line 3
+    print("of each line.")
+                         ^
+TabError: inconsistent use of tabs and spaces in indentation
+          </code></pre>
+          <aside class="notes" data-markdown>
+            Unfortunately if you're trying to mix tabs and spaces, your won't work at all on Python 3.
+
+            Python 3 completely disallows indentation styles that use a mix of tabs and spaces.
+          </aside>
+        </section>
+
+        <section>
+          <h1>PEP 373</h1>
+          <h2>End Of Life for Python 2.7: <strong>2020</strong></h2>
+          <aside class="notes" data-markdown>
+            But that shouldn't be a problem because you never really have to upgrade to Python 3.
+
+            You can use Python 2 forever.
           </aside>
         </section>
 

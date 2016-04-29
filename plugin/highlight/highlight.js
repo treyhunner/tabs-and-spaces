@@ -16,6 +16,20 @@
 				element.innerHTML = element.innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;");
 			}
 
+			// trim whitespace if data-trim attribute is present
+			if( element.hasAttribute( 'data-colorize' )) {
+				var html = element.innerHTML;
+				var tabColor = '#D33A5C';
+				var spaceColor = '#2D4A5C';
+				var SPACE = /^(\s*) /gm;
+				while (SPACE.test(html)) {
+					html = html.replace(SPACE, '$1<span style="background-color: ' + spaceColor + '; border: 1px solid #f8f8f8; margin: -1px; padding: 0;"> </span>')
+				}
+				html = html.replace(/\t/g, '<span style="background-color: ' + tabColor + '; border: 1px solid #f8f8f8; margin: -1px; padding: 0;">\t</span>');
+				element.innerHTML = html;
+				element.style.letterSpacing = '0.5px';
+			}
+
 			// re-highlight when focus is lost (for edited code)
 			element.addEventListener( 'focusout', function( event ) {
 				hljs.highlightBlock( event.currentTarget );
