@@ -230,7 +230,7 @@ html:-moz-full-screen-ancestor {
 .reveal .controls .navigate-left {
   top: 42px;
   border-right-width: 22px;
-  border-right-color: #000; }
+  border-right-color: #344; }
 
 .reveal .controls .navigate-left.fragmented {
   opacity: 0.3; }
@@ -239,7 +239,7 @@ html:-moz-full-screen-ancestor {
   left: 74px;
   top: 42px;
   border-left-width: 22px;
-  border-left-color: #000; }
+  border-left-color: #344; }
 
 .reveal .controls .navigate-right.fragmented {
   opacity: 0.3; }
@@ -247,7 +247,7 @@ html:-moz-full-screen-ancestor {
 .reveal .controls .navigate-up {
   left: 42px;
   border-bottom-width: 22px;
-  border-bottom-color: #000; }
+  border-bottom-color: #344; }
 
 .reveal .controls .navigate-up.fragmented {
   opacity: 0.3; }
@@ -256,7 +256,7 @@ html:-moz-full-screen-ancestor {
   left: 42px;
   top: 74px;
   border-top-width: 22px;
-  border-top-color: #000; }
+  border-top-color: #344; }
 
 .reveal .controls .navigate-down.fragmented {
   opacity: 0.3; }
